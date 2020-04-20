@@ -6,6 +6,10 @@ class SlingShot{
             stiffness: 0.04,
             length: 10
         }
+        this.sling1 = loadImage('sling1.png');
+        this.sling2 = loadImage('sling2.png');
+        this.sling3 = loadImage('sling3.png');
+
         this.pointB = pointB;
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
@@ -20,20 +24,35 @@ class SlingShot{
 
   
     display(){
-    	push();
+        image(this.sling1,150,420);
+        image(this.sling2,120,420);
+    	
     	if(this.sling.bodyA){
     		var pointA = this.sling.bodyA.position;
-    	    var pointB = this.pointB;
-    		strokeWeight(4);
-    		stroke("green");
-    		line(pointA.x, pointA.y, pointB.x, pointB.y);
+            var pointB = this.pointB;
+            push();
+            stroke(48,22,8);
+            if(pointA.x < 180) {
+                strokeWeight(7);
+                line(pointA.x - 20, pointA.y , pointB.x + 60, pointB.y - 30);
+                line(pointA.x -20 , pointA.y, pointB.x + 10 , pointB.y -20 );
+                image(this.sling3,pointA.x -30, pointA.y-23,15,50);
+            }
+    		
+            else {
+                strokeWeight(7);
+                line(pointA.x + 25, pointA.y, pointB.x +60, pointB.y-30);
+                line(pointA.x + 25, pointA.y, pointB.x + 10, pointB.y - 20);
+                image(this.sling3,pointA.x + 25, pointA.y-23,15,50);
+               
+            }
+            pop();
     	}
         else{
             textSize(18);
             fill(255);
             text("Press space to reattach the ball", 200, 50);
         }
-    	pop();
     }
     
 }

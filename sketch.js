@@ -41,7 +41,7 @@ function setup() {
    box14= new Box(670,350,50,50);
    box15 = new Box(645,100,50,50);
 
-   sling = new SlingShot(ball.body, {x:320, y:480});
+   sling = new SlingShot(ball.body, {x:120, y:480});
   
 }
 
