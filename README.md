@@ -1,2 +1,2 @@
-# c29
-slingshot stage2
+# c30
+slingshot stage3: vanishing blocks
